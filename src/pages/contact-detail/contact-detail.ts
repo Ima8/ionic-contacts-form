@@ -26,6 +26,13 @@ export class ContactDetailPage {
     this.contactDetail = this.navParams.get('contact');
     this.picture = this.contactData.getContactUrl() + 'contacts/img/' + this.contactDetail.firstname.toLowerCase() + '.jpeg';
   }
+
+  isFavorite(contact: Contact) {
+    return this.contactData.isFavorite(contact)
+  }
+  delFavorite(contact: Contact) {
+    this.contactData.delFavorite(contact)
+  }
   addFavorite(contact: Contact) {
     this.contactData.addFavorite(contact)
     this.navCtrl.pop()

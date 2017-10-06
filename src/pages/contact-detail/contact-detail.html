@@ -61,8 +61,11 @@
                 {{contactDetail.phone}}
             </ion-label>
         </ion-item>
-        <ion-item>
+        <ion-item *ngIf="!isFavorite(contactDetail)">
             <button ion-button (click)="addFavorite(contactDetail)">Add to Favorites</button>
+        </ion-item>
+        <ion-item *ngIf="isFavorite(contactDetail)">
+            <button ion-button color="danger" (click)="delFavorite(contactDetail)">Del from Favorites</button>
         </ion-item>
     </ion-list>
 </ion-content>

@@ -56,7 +56,17 @@ export class ContactDataProvider {
     return this.recentCalls;
   }
 
-
+  isFavorite(contact: Contact): boolean {
+    if (this.FavoriteContacts.indexOf(contact) == -1) {
+      return false
+    } else {
+      return true
+    }
+  }
+  delFavorite(contact: Contact) {
+    this.FavoriteContacts = this.FavoriteContacts.filter((item) => item !== contact);
+    console.log(this.FavoriteContacts);
+  }
   addRecentCall(newCall: ContactCall) {
     //this.recentCalls.push(newCall) ;
     this.recentCalls.splice(0, 0, newCall);
